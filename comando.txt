@@ -8,8 +8,8 @@ Aqui está a análise **5W2H1S** do nosso projeto "FitTracker Pro":
 
 **1. What (O quê está sendo feito?)**
 * **Projeto:** Desenvolvimento de uma aplicação web front-end, chamada "FitTracker Pro", que funciona como uma planilha de treino digital e interativa.
-* **Status Atual:** A estrutura base do site (layout, design, menu lateral recolhível) está finalizada. O conteúdo completo e funcional do treino da **Semana 1**, incluindo a **persistência de dados** (salvamento automático), foi implementado.
-* **Próximo Passo Imediato:** Implementar o conteúdo do treino da **Semana 2**.
+* **Status Atual:** A estrutura base do site (layout, design, menu lateral recolhível) está finalizada. O conteúdo completo e funcional do treino da **Semana 9**, incluindo a **persistência de dados** (salvamento automático), foi implementado.
+* **Próximo Passo Imediato:** Implementar o conteúdo do treino da **Semana 10**.
 * **Planos Futuros:** Após a criação de todas as 12 semanas, iremos evoluir a tela de **Dashboard** para incluir (a) um botão de **download** de todos os dados do treino em formato JSON e (b) **métricas** visuais para acompanhar a evolução do usuário.
 
 **2. Why (Por que está sendo feito?)**
@@ -44,3 +44,9 @@ Aqui está a análise **5W2H1S** do nosso projeto "FitTracker Pro":
 
 **S - Safety (Qual é a Segurança?)**
 * A segurança dos dados do usuário é **máxima**. Como as informações são salvas exclusivamente no `localStorage` do navegador do usuário, nenhum dado pessoal ou de treino é transmitido pela internet ou armazenado em um servidor externo. Isso garante total privacidade. O único risco é a perda de dados caso o usuário limpe o cache e os dados de sites do seu navegador.
+
+----------
+
+
+
+faça apenas o cod inteiro da semana 10 que eu vou copiar e colar
