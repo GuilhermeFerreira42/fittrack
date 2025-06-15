@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitTracker Pro - Sua Planilha de Treino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .sidebar-content::-webkit-scrollbar { width: 6px; }
+        .sidebar-content::-webkit-scrollbar-thumb { background-color: rgba(102, 126, 234, 0.5); border-radius: 3px; }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-500 to-purple-700 min-h-screen text-gray-800 font-sans">
+
+    <button id="sandwich-menu" class="fixed top-5 left-5 z-50 bg-white bg-opacity-90 backdrop-blur-md text-indigo-600 hover:bg-indigo-100 w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-transform duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+        <i class="fas fa-bars fa-lg"></i>
+    </button>
+
+    <div class="flex min-h-screen">
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-40 w-72 bg-white bg-opacity-95 backdrop-blur-lg border-r border-white border-opacity-20 shadow-lg flex flex-col transition-transform duration-300 -translate-x-full">
+            <div class="flex items-center gap-3 px-5 py-5 border-b border-gray-200 border-opacity-30 select-none">
+                <span class="text-indigo-600 font-extrabold text-2xl">💪</span>
+                <span class="text-indigo-600 font-extrabold text-2xl">FitTracker</span>
+            </div>
+
+            <nav id="sidebar-nav" class="sidebar-content flex-1 overflow-y-auto p-4 space-y-2">
+                <button data-target="dashboard-view" class="nav-button flex items-center gap-3 w-full px-5 py-3 bg-gradient-to-r from-indigo-600 to-purple-700 text-white rounded-xl font-semibold text-lg shadow-md hover:shadow-lg transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button data-target="content-week-1" class="nav-button flex items-center gap-3 w-full px-5 py-3 text-indigo-600 font-semibold rounded-lg hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    <i class="fas fa-calendar-week w-5 text-center"></i>
+                    <span>Semana 1</span>
+                </button>
+                 </nav>
+        </aside>
+
+        <main id="main-content" class="flex-1 flex flex-col p-6 md:p-10 overflow-auto transition-all duration-300">
+            <div id="dashboard-view" class="content-view">
+                <section class="bg-white bg-opacity-90 backdrop-blur-md rounded-2xl p-8 mb-10 shadow-lg text-center">
+                    <h1 class="text-4xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-700 bg-clip-text text-transparent mb-3">
+                        Bem-vindo ao seu FitTracker!
+                    </h1>
+                    <p class="text-gray-600 text-lg max-w-xl mx-auto">
+                        Seus treinos são salvos automaticamente. Preencha os campos e recarregue a página para ver a mágica acontecer!
+                    </p>
+                </section>
+            </div>
+
+            <div id="content-week-1" class="content-view hidden">
+
+                <section class="bg-white bg-opacity-90 backdrop-blur-md rounded-2xl p-6 mb-8 shadow-lg">
+                    <h2 class="text-indigo-600 text-3xl font-bold">Plano de Treino - Semana 1</h2>
+                </section>
+            
+                <section class="bg-white bg-opacity-90 backdrop-blur-md rounded-2xl p-6 mb-8 shadow-lg overflow-x-auto">
+                    <h3 class="text-gray-700 text-2xl font-bold mb-4">Segunda-feira</h3>
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-indigo-600 text-white">
+                                <th class="py-3 px-4 rounded-tl-xl text-left">Exercício</th><th class="py-3 px-4 text-center">Séries</th><th class="py-3 px-4 text-center">Vel. C/E</th><th class="py-3 px-4 text-center">Int.</th><th class="py-3 px-4 text-left">Técnica</th><th class="py-3 px-4 text-center">1ª Série</th><th class="py-3 px-4 text-center">2ª Série</th><th class="py-3 px-4 text-center rounded-tr-xl">3ª Série</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Pulley triângulo</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="pulley-triangulo" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="pulley-triangulo" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="pulley-triangulo" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="pulley-triangulo" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="pulley-triangulo" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="pulley-triangulo" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Remada pronada</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="remada-pronada" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="remada-pronada" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="remada-pronada" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="remada-pronada" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="remada-pronada" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="remada-pronada" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Deltóide posterior</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="deltoide-posterior" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="deltoide-posterior" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="deltoide-posterior" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="deltoide-posterior" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="deltoide-posterior" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="deltoide-posterior" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Rosca scott</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-scott" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-scott" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-scott" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-scott" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-scott" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-scott" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Rosca Simultânea</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-simultanea" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-simultanea" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-simultanea" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-simultanea" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-simultanea" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="rosca-simultanea" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Extensão lombar</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="extensao-lombar" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="extensao-lombar" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="extensao-lombar" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="extensao-lombar" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="segunda" data-exercise="extensao-lombar" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="segunda" data-exercise="extensao-lombar" data-serie="3" data-type="rep"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                
+                <section class="bg-white bg-opacity-90 backdrop-blur-md rounded-2xl p-6 mb-8 shadow-lg overflow-x-auto">
+                    <h3 class="text-gray-700 text-2xl font-bold mb-4">Terça-feira</h3>
+                    <table class="min-w-full border-collapse">
+                         <thead>
+                            <tr class="bg-indigo-600 text-white">
+                                <th class="py-3 px-4 rounded-tl-xl text-left">Exercício</th><th class="py-3 px-4 text-center">Séries</th><th class="py-3 px-4 text-center">Vel. C/E</th><th class="py-3 px-4 text-center">Int.</th><th class="py-3 px-4 text-left">Técnica</th><th class="py-3 px-4 text-center">1ª Série</th><th class="py-3 px-4 text-center">2ª Série</th><th class="py-3 px-4 text-center rounded-tr-xl">3ª Série</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Dumbbell press</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="dumbbell-press" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="dumbbell-press" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="dumbbell-press" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="dumbbell-press" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="dumbbell-press" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="dumbbell-press" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Crucifixo cabo</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="crucifixo-cabo" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="crucifixo-cabo" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="crucifixo-cabo" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="crucifixo-cabo" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="crucifixo-cabo" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="crucifixo-cabo" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Elevação lateral</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="elevacao-lateral" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="elevacao-lateral" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="elevacao-lateral" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="elevacao-lateral" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="elevacao-lateral" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="elevacao-lateral" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Tríceps testa</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-testa" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-testa" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-testa" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-testa" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-testa" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-testa" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Tríceps pulley</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-pulley" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-pulley" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-pulley" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-pulley" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-pulley" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="triceps-pulley" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Abdômen infra</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="abdomen-infra" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="abdomen-infra" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="abdomen-infra" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="abdomen-infra" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="terca" data-exercise="abdomen-infra" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="terca" data-exercise="abdomen-infra" data-serie="3" data-type="rep"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            
+                <section class="bg-white bg-opacity-90 backdrop-blur-md rounded-2xl p-6 mb-8 shadow-lg overflow-x-auto">
+                    <h3 class="text-gray-700 text-2xl font-bold mb-4">Quarta-feira</h3>
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-indigo-600 text-white">
+                                <th class="py-3 px-4 rounded-tl-xl text-left">Exercício</th><th class="py-3 px-4 text-center">Séries</th><th class="py-3 px-4 text-center">Vel. C/E</th><th class="py-3 px-4 text-center">Int.</th><th class="py-3 px-4 text-left">Técnica</th><th class="py-3 px-4 text-center">1ª Série</th><th class="py-3 px-4 text-center">2ª Série</th><th class="py-3 px-4 text-center rounded-tr-xl">3ª Série</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Leg press</td><td class="text-center py-3 px-4">2 x 8-15</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">2 min</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="leg-press" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="leg-press" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="leg-press" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="leg-press" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="leg-press" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="leg-press" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Agachamento hack</td><td class="text-center py-3 px-4">2 x 8-15</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">2 min</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="agachamento-hack" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="agachamento-hack" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="agachamento-hack" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="agachamento-hack" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="agachamento-hack" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="agachamento-hack" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Flexora deitada</td><td class="text-center py-3 px-4">3 x 8-15</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">1 min</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="flexora-deitada" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="flexora-deitada" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="flexora-deitada" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="flexora-deitada" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="flexora-deitada" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="flexora-deitada" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Panturrilha sentada</td><td class="text-center py-3 px-4">3 x 8-15</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-sentada" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-sentada" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-sentada" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-sentada" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-sentada" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-sentada" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Panturrilha em pé</td><td class="text-center py-3 px-4">3 x 8-15</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-em-pe" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-em-pe" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-em-pe" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-em-pe" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-em-pe" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quarta" data-exercise="panturrilha-em-pe" data-serie="3" data-type="rep"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            
+                <section class="bg-white bg-opacity-90 backdrop-blur-md rounded-2xl p-6 mb-8 shadow-lg overflow-x-auto">
+                    <h3 class="text-gray-700 text-2xl font-bold mb-4">Quinta-feira</h3>
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-indigo-600 text-white">
+                                <th class="py-3 px-4 rounded-tl-xl text-left">Exercício</th><th class="py-3 px-4 text-center">Séries</th><th class="py-3 px-4 text-center">Vel. C/E</th><th class="py-3 px-4 text-center">Int.</th><th class="py-3 px-4 text-left">Técnica</th><th class="py-3 px-4 text-center">1ª Série</th><th class="py-3 px-4 text-center">2ª Série</th><th class="py-3 px-4 text-center rounded-tr-xl">3ª Série</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Remada baixa</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Remada baixa romana</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa-romana" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa-romana" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa-romana" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa-romana" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa-romana" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="remada-baixa-romana" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Crucifixo inverso</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="crucifixo-inverso" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="crucifixo-inverso" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="crucifixo-inverso" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="crucifixo-inverso" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="crucifixo-inverso" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="crucifixo-inverso" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Rosca direta</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-direta" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-direta" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-direta" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-direta" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-direta" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-direta" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Rosca Invertida</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-invertida" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-invertida" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-invertida" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-invertida" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-invertida" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="rosca-invertida" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Manguito rotador</td><td class="text-center py-3 px-4">3 x 6-15</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="manguito-rotador" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="manguito-rotador" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="manguito-rotador" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="manguito-rotador" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="quinta" data-exercise="manguito-rotador" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="quinta" data-exercise="manguito-rotador" data-serie="3" data-type="rep"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            
+                <section class="bg-white bg-opacity-90 backdrop-blur-md rounded-2xl p-6 mb-8 shadow-lg overflow-x-auto">
+                    <h3 class="text-gray-700 text-2xl font-bold mb-4">Sexta-feira</h3>
+                    <table class="min-w-full border-collapse">
+                        <thead>
+                            <tr class="bg-indigo-600 text-white">
+                                <th class="py-3 px-4 rounded-tl-xl text-left">Exercício</th><th class="py-3 px-4 text-center">Séries</th><th class="py-3 px-4 text-center">Vel. C/E</th><th class="py-3 px-4 text-center">Int.</th><th class="py-3 px-4 text-left">Técnica</th><th class="py-3 px-4 text-center">1ª Série</th><th class="py-3 px-4 text-center">2ª Série</th><th class="py-3 px-4 text-center rounded-tr-xl">3ª Série</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Dumbbell press reto</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="dumbbell-press-reto" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="dumbbell-press-reto" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="dumbbell-press-reto" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="dumbbell-press-reto" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="dumbbell-press-reto" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="dumbbell-press-reto" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Supino inclinado</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="supino-inclinado" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="supino-inclinado" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="supino-inclinado" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="supino-inclinado" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="supino-inclinado" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="supino-inclinado" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Elevação lateral</td><td class="text-center py-3 px-4">3 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="elevacao-lateral" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="elevacao-lateral" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="elevacao-lateral" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="elevacao-lateral" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="elevacao-lateral" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="elevacao-lateral" data-serie="3" data-type="rep"></td>
+                            </tr>
+                            <tr class="hover:bg-indigo-50">
+                                <td class="font-semibold py-3 px-4">Tríceps Pulley</td><td class="text-center py-3 px-4">2 x 6-12</td><td class="text-center py-3 px-4">1 por 1</td><td class="text-center py-3 px-4">40 seg</td><td class="py-3 px-4">Falha concêntrica</td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="triceps-pulley" data-serie="1" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="triceps-pulley" data-serie="1" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="triceps-pulley" data-serie="2" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="triceps-pulley" data-serie="2" data-type="rep"></td>
+                                <td class="py-3 px-4"><input type="number" placeholder="kg" class="workout-input" data-week="1" data-day="sexta" data-exercise="triceps-pulley" data-serie="3" data-type="peso"> <input type="number" placeholder="rep" class="workout-input" data-week="1" data-day="sexta" data-exercise="triceps-pulley" data-serie="3" data-type="rep"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            
+            </div>
+
+             </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            const sandwichMenu = document.getElementById('sandwich-menu');
+            const sidebarNav = document.getElementById('sidebar-nav');
+            const contentViews = document.querySelectorAll('.content-view');
+            const navButtons = document.querySelectorAll('.nav-button');
+            
+            // CHAVE ÚNICA PARA O LOCALSTORAGE
+            const STORAGE_KEY = 'fitTrackerData';
+
+            // --- LÓGICA DE PERSISTÊNCIA DE DADOS ---
+
+            /**
+             * Carrega todos os dados salvos do localStorage e preenche os campos.
+             */
+            const loadData = () => {
+                const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+                if (!savedData) {
+                    console.log('Nenhum dado salvo encontrado.');
+                    return;
+                }
+
+                document.querySelectorAll('.workout-input').forEach(input => {
+                    const { week, day, exercise, serie, type } = input.dataset;
+                    
+                    if (savedData[week] && savedData[week][day] && savedData[week][day][exercise] && savedData[week][day][exercise][serie] && savedData[week][day][exercise][serie][type] !== undefined) {
+                        input.value = savedData[week][day][exercise][serie][type];
+                    }
+                });
+                console.log('Dados carregados com sucesso!');
+            };
+
+            /**
+             * Salva o valor de um campo específico no localStorage.
+             * @param {HTMLElement} input - O elemento input que foi alterado.
+             */
+            const saveData = (input) => {
+                const { week, day, exercise, serie, type } = input.dataset;
+                const value = input.value;
+
+                // 1. Pega os dados existentes ou cria um objeto vazio
+                const currentData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+
+                // 2. Garante que a estrutura aninhada exista
+                if (!currentData[week]) currentData[week] = {};
+                if (!currentData[week][day]) currentData[week][day] = {};
+                if (!currentData[week][day][exercise]) currentData[week][day][exercise] = {};
+                if (!currentData[week][day][exercise][serie]) currentData[week][day][exercise][serie] = {};
+
+                // 3. Salva o novo valor
+                currentData[week][day][exercise][serie][type] = value;
+
+                // 4. Envia o objeto atualizado de volta para o localStorage
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(currentData));
+            };
+
+            // --- LÓGICA DE NAVEGAÇÃO E UI ---
+
+            const toggleSidebar = () => {
+                sidebar.classList.toggle('-translate-x-full');
+                mainContent.classList.toggle('md:ml-72');
+                sandwichMenu.classList.toggle('translate-x-72');
+            };
+            
+            const showContent = (targetId) => {
+                contentViews.forEach(view => view.classList.add('hidden'));
+                const targetView = document.getElementById(targetId);
+                if (targetView) targetView.classList.remove('hidden');
+            };
+            
+            const setActiveButton = (clickedButton) => {
+                navButtons.forEach(button => {
+                    button.classList.remove('bg-gradient-to-r', 'from-indigo-600', 'to-purple-700', 'text-white', 'shadow-md');
+                    button.classList.add('text-indigo-600', 'hover:bg-indigo-100');
+                });
+                clickedButton.classList.add('bg-gradient-to-r', 'from-indigo-600', 'to-purple-700', 'text-white', 'shadow-md');
+                clickedButton.classList.remove('text-indigo-600', 'hover:bg-indigo-100');
+            };
+
+            // --- EVENT LISTENERS ---
+            
+            sandwichMenu.addEventListener('click', e => {
+                e.stopPropagation();
+                toggleSidebar();
+            });
+            
+            sidebarNav.addEventListener('click', e => {
+                const button = e.target.closest('.nav-button');
+                if (!button) return;
+                showContent(button.dataset.target);
+                setActiveButton(button);
+                if (window.innerWidth < 768 && !sidebar.classList.contains('-translate-x-full')) {
+                    toggleSidebar();
+                }
+            });
+            
+            // Event Listener para salvar dados (usando delegação de eventos)
+            mainContent.addEventListener('change', e => {
+                if (e.target.classList.contains('workout-input')) {
+                    saveData(e.target);
+                }
+            });
+
+            // --- INICIALIZAÇÃO ---
+            
+            // Adiciona classe para estilizar os inputs de treino
+            document.querySelectorAll('.workout-input').forEach(input => {
+                input.classList.add('w-16', 'p-1', 'text-center', 'rounded', 'border-gray-300', 'focus:border-indigo-500', 'focus:ring-indigo-500');
+            });
+            
+            // Abre a sidebar por padrão em telas grandes
+            if (window.innerWidth >= 768) {
+                toggleSidebar();
+            }
+            
+            // **Carrega os dados salvos assim que a página é aberta**
+            loadData();
+        });
+    </script>
+</body>
+</html>
+
+
